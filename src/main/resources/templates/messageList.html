@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Message List 페이지</h1>
+
+<!-- loading, error, list 처리 ele -->
+<div id="loading"></div>
+<div id="error"></div>
+<div id="container">
+	<a th:href="@{/messages/create}">메시지 추가</a>
+	<ul id="list"></ul>
+</div>
+
+
+<!-- MessageListAPI -->
+<script th:src="@{/js/messageListAPI.js}"></script>
+</body>
+</html>
