@@ -29,6 +29,7 @@ public class MessageController {
 	}
 	
 	// 목록페이지 - messageList.html
+	// 
 	@GetMapping("/messages")
 	public String getMessageList() {
 		return "messageList";
