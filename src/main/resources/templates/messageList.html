@@ -13,19 +13,28 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
 <!-- loading, error, list 처리 ele -->
 <div id="loading"></div>
 <div id="error"></div>
-<div id="container">
-	<a th:href="@{/messages/create}">메시지 추가</a>
+<div id="container" th:style="'margin-bottom:14px;'">
+	<a th:href="@{/messages/create}" th:style="'display:block; margin-bottom:14px;'">메시지 추가</a>
 	<ul id="list"></ul>
 </div>
 
 <!-- bootstrap navigation -->
-<nav aria-label="Page navigation example">
+<nav aria-label="Page navigation">
   <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    <li class="page-item" th:classappend="${pageData.page == 1} ? 'disabled'">
+    	<a class="page-link" th:href="@{/messages(page=${pageData.page - 1}, size=${pageData.size})}">Previous</a>
+    </li>
+    <li class="page-item" 
+    	th:each="pageNum : ${#numbers.sequence(1, pageData.totalPages)}"
+    	th:classappend="${pageNum == pageData.page} ? 'active'"
+   	>
+   		<a class="page-link" th:href="@{/messages(page=${pageNum}, size=${pageData.size})}" th:text="${pageNum}"></a>
+    </li>
+    <li class="page-item" 
+    	th:classappend="${pageData.page == pageData.totalPages} ? 'disabled'"
+   	>
+    	<a class="page-link" th:href="@{/messages(page=${pageData.page + 1}, size=${pageData.size})}">Next</a>
+    </li>
   </ul>
 </nav>
 

@@ -2,13 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.mysite.practice.MessageMapper">
+	<!-- list -->
 	<select id="getMessageListAll" resultType="com.mysite.practice.Message">
-		SELECT * FROM hello
+		SELECT * FROM hello ORDER BY id DESC LIMIT 10;
 	</select>
 	<select id="getMessageDetail" resultType="com.mysite.practice.Message">
-		SELECT * FROM hello WHERE id = #{id}
+		SELECT * FROM hello WHERE id = #{id};
 	</select>
 	<insert id="insertMessage" parameterType="com.mysite.practice.Message">
 		INSERT INTO hello (message) VALUES (#{message});
 	</insert>
+	
+	<!-- pagination -->
+	<select id="getMessagesWithPaging" resultType="com.mysite.practice.Message">
+		SELECT * FROM hello ORDER BY id DESC LIMIT #{size} OFFSET #{offset};
+	</select>
+	<select id="countTotal" resultType="Integer">
+		SELECT COUNT(*) FROM hello;
+	</select>
+
 </mapper>

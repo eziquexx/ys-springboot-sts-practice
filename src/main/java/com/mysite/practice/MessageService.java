@@ -24,4 +24,15 @@ public class MessageService {
 	public void createMessate(Message message) {
 		messageMapper.insertMessage(message);
 	}
+	
+	// message list pagination
+	public PageDTO getPagedData(int page, int size) {
+		int offset = (page - 1) * size;
+		
+		List<Message> content = messageMapper.getMessagesWithPaging(offset, size);
+		int totalElements = messageMapper.countTotal();
+		int totalPages = (int) Math.ceil((double) totalElements / size);
+		
+		return new PageDTO(page, size, totalPages, totalElements, content);
+	}
 }

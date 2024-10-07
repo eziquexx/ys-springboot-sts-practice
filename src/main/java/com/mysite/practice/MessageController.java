@@ -29,10 +29,16 @@ public class MessageController {
 	}
 	
 	// 목록페이지 - messageList.html
-	// 
+	// pagination 기능 추가
+	// RequestParam 어노테이션 추가. (name = "value", defaultValue = "...") 타입 value 기본 문법인듯.
 	@GetMapping("/messages")
-	public String getMessageList() {
-		return "messageList";
+	public String getMessageList(
+		@RequestParam(name = "page", defaultValue = "1") int page,
+		@RequestParam(name="size", defaultValue = "10") int size, 
+		Model model) {
+			PageDTO pageData = messageService.getPagedData(page, size);
+			model.addAttribute("pageData", pageData);
+			return "messageList";
 	}
 	// 목록페이지 - api
 	@GetMapping("/messages/api")

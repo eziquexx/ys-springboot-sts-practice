@@ -10,7 +10,7 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
 <body>
 <h1>Message Detail 페이지</h1>
 <div>
-	<a th:href="@{/messages}">뒤로가기</a>
+	<a th:href="@{/messages}" th:style="'display:block; margin-bottom:14px;'">뒤로가기</a>
 </div>
 <ul>
 	<li th:text="'id는 ' + ${msg.id}"></li>
