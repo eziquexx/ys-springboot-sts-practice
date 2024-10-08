@@ -1,14 +1,12 @@
 package com.mysite.practice;
 
 import java.util.List;
-
 public class PageDTO {
 	private int page;
 	private int size;
 	private int totalPages;
 	private long totalElements;
 	private List<Message> content;
-	
 	public int getPage() {
 		return page;
 	}
@@ -39,8 +37,6 @@ public class PageDTO {
 	public void setContent(List<Message> content) {
 		this.content = content;
 	}
-	
-	// PageDTO 추가. 이건 왜 추가한지 모르겠음.
 	public PageDTO(int page, int size, int totalPages, long totalElements, List<Message> content) {
 		super();
 		this.page = page;
@@ -49,5 +45,4 @@ public class PageDTO {
 		this.totalElements = totalElements;
 		this.content = content;
 	}
-	
 }

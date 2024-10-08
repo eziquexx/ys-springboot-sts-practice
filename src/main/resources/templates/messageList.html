@@ -22,22 +22,18 @@ integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEw
 <nav aria-label="Page navigation">
   <ul class="pagination">
     <li class="page-item" th:classappend="${pageData.page == 1} ? 'disabled'">
-    	<a class="page-link" th:href="@{/messages(page=${pageData.page - 1}, size=${pageData.size})}">Previous</a>
+      <a class="page-link" th:href="@{/messages(page=${pageData.page - 1}, size=${pageData.size})}">Previous</a>
     </li>
-    <li class="page-item" 
-    	th:each="pageNum : ${#numbers.sequence(1, pageData.totalPages)}"
-    	th:classappend="${pageNum == pageData.page} ? 'active'"
-   	>
-   		<a class="page-link" th:href="@{/messages(page=${pageNum}, size=${pageData.size})}" th:text="${pageNum}"></a>
+    <li class="page-item" th:each="pageNum : ${#numbers.sequence(1, pageData.totalPages)}"
+        th:classappend="${pageNum == pageData.page} ? 'active'">
+      <a class="page-link" th:href="@{/messages(page=${pageNum}, size=${pageData.size})}"
+         th:text="${pageNum}"></a>
     </li>
-    <li class="page-item" 
-    	th:classappend="${pageData.page == pageData.totalPages} ? 'disabled'"
-   	>
-    	<a class="page-link" th:href="@{/messages(page=${pageData.page + 1}, size=${pageData.size})}">Next</a>
+    <li class="page-item" th:classappend="${pageData.page == pageData.totalPages} ? 'disabled'">
+      <a class="page-link" th:href="@{/messages(page=${pageData.page + 1}, size=${pageData.size})}">Next</a>
     </li>
   </ul>
 </nav>
-
 
 <!-- MessageListAPI -->
 <script th:src="@{/js/messageListAPI.js}"></script>
