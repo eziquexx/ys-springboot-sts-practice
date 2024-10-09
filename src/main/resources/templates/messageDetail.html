@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>detail page</title>
+</head>
+<body>
+<h1>detail page</h1>
+<div>
+	<a th:href="@{/}">[홈 이동]</a>
+	<a th:href="@{/messages}">[목록페이지 이동]</a>
+</div>
+<ul>
+	<li th:text="${msg.id}"></li>
+	<li th:text="${msg.message}"></li>
+</ul>
+</body>
+</html>
