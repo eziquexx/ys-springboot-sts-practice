@@ -10,6 +10,12 @@ public class MessageService {
 	@Autowired
 	private MessageMapper messageMapper;
 	
+	//MessageDetail - id
+	public MessageDTO getMessage(Integer id) {
+		return messageMapper.getMessageById(id);
+	}
+	
+	// MessageListAll
 	public List<MessageDTO> getMessageListAll() {
 		return messageMapper.getMessageListAll();
 	}
