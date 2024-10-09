@@ -5,11 +5,16 @@
 <title>message create page</title>
 </head>
 <body>
-<form action="" method="post">
+<div>
+	<a th:href="@{/}">[홈 이동]</a>
+</div>
+<form th:action="@{/create}" method="post" id="messageCreateForm">
 <label for="input_message"></label>
-<input type="text" id="input_message" name="message" placeholder="메세지를 입력해주세요."/>
+<input type="text" id="input_message" name="message" placeholder="메세지를 입력해주세요." required/>
 <br/>
 <button type="submit">전송</button>
 </form>
+
+<script th:src="@{/js/messageCreate-fetch.js}"></script>
 </body>
 </html>

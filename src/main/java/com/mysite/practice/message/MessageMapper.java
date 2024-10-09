@@ -12,4 +12,10 @@ public interface MessageMapper {
 	
 	// list 통로
 	List<MessageDTO> getMessageListAll();
+	
+	// insert message
+	void insertMessage(MessageDTO message);
+	
+	// delete message
+	void deleteMessage(Integer id);
 }

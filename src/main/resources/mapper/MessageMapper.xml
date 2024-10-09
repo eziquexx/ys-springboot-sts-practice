@@ -10,4 +10,12 @@
 	<select id="getMessageListAll" resultType="com.mysite.practice.message.MessageDTO">
 		select * from hello;
 	</select>
+	
+	<insert id="insertMessage" parameterType="com.mysite.practice.message.MessageDTO">
+		insert into hello(message) values (#{message});
+	</insert>
+	
+	<delete id="deleteMessage" parameterType="com.mysite.practice.message.MessageDTO">
+		delete from hello where id = #{id};
+	</delete>
 </mapper>

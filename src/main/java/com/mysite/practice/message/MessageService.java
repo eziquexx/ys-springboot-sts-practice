@@ -19,4 +19,14 @@ public class MessageService {
 	public List<MessageDTO> getMessageListAll() {
 		return messageMapper.getMessageListAll();
 	}
+	
+	// MessageCreate
+	public void setMessageCreate(MessageDTO message) {
+		messageMapper.insertMessage(message);
+	}
+	
+	// MessageDelete
+	public void deleteMessage(Integer id) {
+		messageMapper.deleteMessage(id);
+	}
 }

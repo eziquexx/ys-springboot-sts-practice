@@ -14,5 +14,8 @@
 	<li th:text="${msg.id}"></li>
 	<li th:text="${msg.message}"></li>
 </ul>
+<br/>
+<button th:onclick="'deleteItem('+ ${msg.id} + ')'">삭제</button>
+<script th:src="@{/js/messageDelete.js}"></script>
 </body>
 </html>
