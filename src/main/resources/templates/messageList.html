@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>messageList page</h1>
+<div>
+	<a th:href="@{/}"></a>
+</div>
+
+<div id="loading_id">loading...</div>
+<div id="error_id">error...</div>
+<ul id="messageList_id"></ul>
+
+<script th:src="@{/js/messageList-fetch.js}"></script>
+</body>
+</html>
